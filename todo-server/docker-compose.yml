@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: database
+    user: postgres
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=my-todoapp
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    volumes:
+      - /Users/graph/Documents/DevpoolxODD/todo-project-backend/postgres-vol:/var/lib/postgresql/data
+
+
+# https://hub.docker.com/_/postgres section PGDATA -> solve initdb permission denied when try to access directory = /var/lib/postgresql/data

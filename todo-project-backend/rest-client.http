@@ -1,0 +1,32 @@
+###
+http://localhost:1234/
+
+
+###
+GET http://localhost:1234/login/john@mail.com
+
+###
+POST http://localhost:1234/login/tom@mail.com
+Content-Type: application/json
+
+{
+		"email": "john@mail.com",
+		"todos": []
+}
+
+###
+POST http://localhost:1234/todos/tom@mail.com
+Content-Type: application/json
+
+{
+		"email": "tom@mail.com",
+		"todos": ["wake up","go to sleep"]
+}
+
+###
+GET http://localhost:1234/todos/tom@mail.com
+Content-Type: application/json
+
+{
+	"email": "tom@mail.com"
+}
