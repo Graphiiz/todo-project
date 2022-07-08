@@ -1,0 +1,41 @@
+<div class="container">
+  <div>
+    <div>
+      <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+        <div class="d-flex justify-content-center" style="margin-top: 30px;">
+          <div class="form-group">
+            <input
+              type="text"
+              id="todo"
+              formControlName="todo"
+              class="form-control" [placeholder]="placeholder">
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+      <div class="row d-flex justify-content-center" style="margin-top: 30px;">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+          <ul class="list-group">
+          <li
+            class="list-group-item list-group-item-action"
+            *ngFor="let todo of todoList; let i = index">
+            <div class="d-flex justify-content-between">
+              <span class="badge bg-info text-dark">{{ i+1 }}</span>{{ todo }}
+              <a class="btn btn-danger btn-sm" (click)="onDeleteTodo(i)"><i class="bi bi-trash"></i></a>
+            </div>
+
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" style="margin-top: 30px;">
+    <button class="btn btn-primary" type="button" (click)="onSave()" style="margin-right: 30px;">Save</button>
+    <a routerLink="">
+      <button class="btn btn-primary" type="button">Logout</button>
+    </a>
+  </div>
+</div>
